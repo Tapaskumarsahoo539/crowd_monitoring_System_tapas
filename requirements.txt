@@ -1,0 +1,10 @@
+# Core dependencies for YOLOv8 and AI-Based Crowd Monitoring System
+ultralytics>=8.3.0
+opencv-python>=4.8.0
+numpy>=1.23.5
+matplotlib>=3.7.0
+scipy>=1.10.0 # Required for loading .mat files from UCF-QNRF dataset
+pandas>=2.0.0
+Pillow>=9.5.0
+tqdm>=4.65.0
+PyYAML>=6.0

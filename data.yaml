@@ -1,0 +1,7 @@
+path: dataset/yolo_format # Root directory for the dataset
+train: images/train # Train images directory (relative to path)
+val: images/val     # Val images directory (relative to path)
+
+# Classes
+nc: 1 # Number of classes
+names: ['person'] # Class names
