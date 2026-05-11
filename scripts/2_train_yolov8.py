@@ -37,5 +37,5 @@ if __name__ == "__main__":
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     yaml_path = os.path.join(base_dir, 'data.yaml')
     
-    # We use YOLOv8n (nano) as requested for lightweight detection
+    # We use yolov8n (nano) as requested for lightweight detection
     train_model(yaml_path, epochs=30, batch_size=16, model_type='yolov8n.pt')

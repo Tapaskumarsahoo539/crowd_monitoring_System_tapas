@@ -32,7 +32,9 @@ crowd_monitoring_System_tapas/
 ├── scripts/                    # Core Python scripts
 │   ├── 1_preprocess_ucf_qnrf.py
 │   ├── 2_train_yolov8.py
-│   └── 3_inference.py
+│   ├── 3_inference_yolov8.py
+│   ├── 3_inference_yolo11.py
+│   └── 3_inference_yolo12.py
 ├── data.yaml                   # YOLO dataset configuration
 ├── requirements.txt            # Python dependencies
 └── README.md                   # This file
@@ -67,17 +69,17 @@ You can use the inference script to test the model on images, videos, or your we
 
 **To run on a static image:**
 ```bash
-python scripts/3_inference.py --source "path/to/image.jpg" --model "yolov8n.pt" --threshold 20
+python scripts/3_inference_yolov8.py --source "path/to/image.jpg" --model "yolov8n.pt" --threshold 20
 ```
 
 **To run on a video file:**
 ```bash
-python scripts/3_inference.py --source "path/to/video.mp4" --model "yolov8n.pt" --threshold 20
+python scripts/3_inference_yolov8.py --source "path/to/video.mp4" --model "yolov8n.pt" --threshold 20
 ```
 
 **To run using your live webcam:**
 ```bash
-python scripts/3_inference.py --source 0 --model "yolov8n.pt" --threshold 20
+python scripts/3_inference_yolov8.py --source 0 --model "yolov8n.pt" --threshold 20
 ```
 *(Press 'q' to quit the webcam view)*
 
@@ -87,6 +89,48 @@ python scripts/3_inference.py --source 0 --model "yolov8n.pt" --threshold 20
 If you don't have a local GPU, we highly recommend using the provided Jupyter Notebook.
 1. Upload `notebooks/Crowd_Monitoring_Colab.ipynb` to Google Colab.
 2. Follow the step-by-step instructions in the notebook to download the dataset, train the model, and run inference using a free T4 GPU.
+
+---
+
+### 6. Using YOLO11 (Alternative)
+We also provide support for the newer YOLO11 models. To use YOLO11 instead of YOLOv8 without modifying the base code:
+
+**Training with YOLO11:**
+Run the dedicated YOLO11 training script:
+```bash
+python scripts/2_train_yolo11.py
+```
+
+**Inference with YOLO11:**
+You can run the existing inference script but pass a YOLO11 model weights file:
+```bash
+python scripts/3_inference_yolo11.py --source 0 --model "yolo11m.pt" --threshold 20
+```
+> **Note:** Make sure to upgrade your ultralytics package (`pip install -U ultralytics`) to use YOLO11 models.
+
+**Google Colab (YOLO11):**
+There is a dedicated Google Colab notebook for YOLO11 training and inference located at `notebooks/Crowd_Monitoring_YOLO11_Colab.ipynb`.
+
+---
+
+### 7. Using YOLO12 (Alternative)
+We also provide support for the newest YOLO12 models. To use YOLO12 instead of YOLOv8 without modifying the base code:
+
+**Training with YOLO12:**
+Run the dedicated YOLO12 training script:
+```bash
+python scripts/2_train_yolo12.py
+```
+
+**Inference with YOLO12:**
+You can run the existing inference script but pass a YOLO12 model weights file:
+```bash
+python scripts/3_inference_yolo12.py --source 0 --model "yolo12m.pt" --threshold 20
+```
+> **Note:** Make sure to upgrade your ultralytics package (`pip install -U ultralytics`) to use YOLO12 models.
+
+**Google Colab (YOLO12):**
+There is a dedicated Google Colab notebook for YOLO12 training and inference located at `notebooks/Crowd_Monitoring_YOLO12_Colab.ipynb`.
 
 ---
 **Developed for B.Tech CSE (AIML) Final Year Project.**
